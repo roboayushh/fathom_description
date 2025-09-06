@@ -1,0 +1,30 @@
+<?xml version='1.0'?>
+<sdf version='1.7'>
+  <model name='blue_drum'>
+    <static>true</static>
+    <link name='link'>
+      <pose>0 0 0 1.5708 0 0</pose>
+      <visual name='visual'>
+        <geometry>
+          <mesh>
+            <uri>drum.obj</uri>
+            <scale>0.4 0.4 0.4</scale>
+          </mesh>
+        </geometry>
+        <material>
+          <ambient>0.2 0.2 0.9 1</ambient>
+          <diffuse>0.2 0.2 1.0 1</diffuse>
+          <specular>0.1 0.1 0.1 1</specular>
+        </material>
+      </visual>
+      <collision name='collision'>
+        <geometry>
+          <mesh>
+            <uri>drum.obj</uri>
+            <scale>0.4 0.4 0.4</scale>
+          </mesh>
+        </geometry>
+      </collision>
+    </link>
+  </model>
+</sdf>

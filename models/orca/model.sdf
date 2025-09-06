@@ -1,0 +1,182 @@
+<?xml version='1.0'?>
+<sdf version='1.7'>
+  <model name='orca'>
+    <static>false</static>
+
+    <link name='base_link'>
+      <pose>-0.00135 -0.002652 0 1.5708 0 1.57079</pose>
+      <inertial>
+        <mass>26.801</mass>
+        <inertia>
+          <ixx>0.1</ixx> <ixy>0</ixy> <ixz>0</ixz>
+          <iyy>0.1</iyy> <iyz>0</iyz>
+          <izz>0.1</izz>
+        </inertia>
+      </inertial>
+      <visual name='visual'>
+        <geometry>
+          <mesh>
+            <uri>orca_body.obj</uri>
+          </mesh>
+        </geometry>
+        <material>
+          <ambient>0.3 0.3 0.3 1</ambient>
+          <diffuse>0.7 0.7 0.7 1</diffuse>
+          <specular>0.1 0.1 0.1 1</specular>
+        </material>
+      </visual>
+      <collision name='collision'>
+        <geometry>
+          <mesh>
+            <uri>orca_body.obj</uri>
+          </mesh>
+        </geometry>
+      </collision>
+    </link>
+
+    <link name='vertical_duct'>
+      <pose>0 0 0.2 1.5708 0 0</pose>
+      <inertial>
+        <mass>15.708</mass>
+        <inertia>
+          <ixx>0.366</ixx> <ixy>0</ixy> <ixz>0</ixz>
+          <iyy>0.366</iyy> <iyz>0</iyz>
+          <izz>0.078</izz>
+        </inertia>
+      </inertial>
+      <visual name='visual'>
+        <geometry>
+          <cylinder>
+            <radius>0.1</radius>
+            <length>0.5</length>
+          </cylinder>
+        </geometry>
+        <material>
+          <ambient>0.3 0.3 0.3 1</ambient>
+          <diffuse>0.7 0.7 0.7 1</diffuse>
+          <specular>0.1 0.1 0.1 1</specular>
+        </material>
+      </visual>
+      <collision name='collision'>
+        <geometry>
+          <cylinder>
+            <radius>0.1</radius>
+            <length>0.5</length>
+          </cylinder>
+        </geometry>
+      </collision>
+    </link>
+
+    <link name='horizontal_duct'>
+      <pose>0.000323 -0.00235 -0.21331 0 0 0</pose>
+      <inertial>
+        <mass>0.15708</mass>
+        <inertia>
+          <ixx>0.0032</ixx> <ixy>0</ixy> <ixz>0</ixz>
+          <iyy>0.0032</iyy> <iyz>0</iyz>
+          <izz>7.85e-06</izz>
+        </inertia>
+      </inertial>
+      <visual name='visual'>
+        <geometry>
+          <cylinder>
+            <radius>0.01</radius>
+            <length>0.5</length>
+          </cylinder>
+        </geometry>
+        <material>
+          <ambient>0.3 0.3 1.0 1</ambient>
+          <diffuse>0.7 0.7 1.0 1</diffuse>
+          <specular>0.1 0.1 0.1 1</specular>
+        </material>
+      </visual>
+      <collision name='collision'>
+        <geometry>
+          <cylinder>
+            <radius>0.01</radius>
+            <length>0.5</length>
+          </cylinder>
+        </geometry>
+      </collision>
+    </link>
+
+    <link name='front_camera_link'>
+      <pose>-0.00135 0.348377 0.0585 0 0 0</pose>
+      <inertial>
+        <mass>1e-05</mass>
+        <inertia>
+          <ixx>1e-06</ixx> <ixy>0</ixy> <ixz>0</ixz>
+          <iyy>1e-06</iyy> <iyz>0</iyz>
+          <izz>1e-06</izz>
+        </inertia>
+      </inertial>
+      <visual name='visual'>
+        <geometry>
+          <box><size>0.025 0.05 0.03</size></box>
+        </geometry>
+        <material>
+          <ambient>1 0 0 1</ambient>
+          <diffuse>1 0 0 1</diffuse>
+          <specular>0.1 0.1 0.1 1</specular>
+        </material>
+      </visual>
+      <sensor name='front_stereo_camera' type='multicamera'>
+        <update_rate>1</update_rate>
+        <topic>stereo_camera</topic>
+        <camera name="left"/>
+        <camera name="right"/>
+      </sensor>
+    </link>
+
+    <link name='bottom_camera_link'>
+      <pose>0 0.165209 0.01076 -1.5796 0 0</pose>
+      <inertial>
+        <mass>1e-05</mass>
+        <inertia>
+          <ixx>1e-06</ixx> <ixy>0</ixy> <ixz>0</ixz>
+          <iyy>1e-06</iyy> <iyz>0</iyz>
+          <izz>1e-06</izz>
+        </inertia>
+      </inertial>
+      <visual name='visual'>
+        <geometry>
+          <box><size>0.025 0.05 0.03</size></box>
+        </geometry>
+        <material>
+          <ambient>1 0 0 1</ambient>
+          <diffuse>1 0 0 1</diffuse>
+          <specular>0.1 0.1 0.1 1</specular>
+        </material>
+      </visual>
+      <sensor name='bottom_camera' type='camera'>
+        <update_rate>1</update_rate>
+        <topic>bottom_camera</topic>
+      </sensor>
+    </link>
+
+    <joint name='base_to_vertical' type='fixed'>
+      <parent>base_link</parent>
+      <child>vertical_duct</child>
+    </joint>
+    <joint name='base_to_horizontal' type='fixed'>
+      <parent>base_link</parent>
+      <child>horizontal_duct</child>
+    </joint>
+    <joint name='base_to_front_camera' type='fixed'>
+      <parent>base_link</parent>
+      <child>front_camera_link</child>
+    </joint>
+    <joint name='base_to_bottom_camera' type='fixed'>
+      <parent>base_link</parent>
+      <child>bottom_camera_link</child>
+    </joint>
+
+    <plugin filename="libgz-sim-buoyancy-system.so" name="gz::sim::systems::Buoyancy">
+      <link_name>base_link</link_name>
+      <link_name>vertical_duct</link_name>
+      <link_name>horizontal_duct</link_name>
+      <fluid_density>1000</fluid_density>
+    </plugin>
+
+  </model>
+</sdf>

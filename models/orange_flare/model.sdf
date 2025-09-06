@@ -1,0 +1,30 @@
+<?xml version='1.0'?>
+<sdf version='1.7'>
+  <model name='orange_flare'>
+    <static>true</static>
+    <link name='link'>
+      <pose>0 0 0.75 0 0 0</pose>
+      <visual name='visual'>
+        <geometry>
+          <cylinder>
+            <radius>0.075</radius>
+            <length>1.5</length>
+          </cylinder>
+        </geometry>
+        <material>
+          <ambient>1.0 0.4 0.0 1</ambient>
+          <diffuse>1.0 0.4 0.0 1</diffuse>
+          <specular>0.1 0.1 0.1 1</specular>
+        </material>
+      </visual>
+      <collision name='collision'>
+        <geometry>
+          <cylinder>
+            <radius>0.075</radius>
+            <length>1.5</length>
+          </cylinder>
+        </geometry>
+      </collision>
+    </link>
+  </model>
+</sdf>

@@ -1,0 +1,44 @@
+<?xml version='1.0'?>
+<sdf version='1.7'>
+  <model name='depth_camera_model'>
+    <static>true</static>
+    <link name='link'>
+      <pose>0 0 0 0 0 1.5708</pose>
+
+      <visual name='visual'>
+        <geometry>
+          <box>
+            <size>0.024 0.049 0.030</size>
+          </box>
+        </geometry>
+        <material>
+          <ambient>1 0 0 1</ambient>
+          <diffuse>1 0 0 1</diffuse>
+          <specular>0.1 0.1 0.1 1</specular>
+        </material>
+      </visual>
+
+      <collision name='collision'>
+        <geometry>
+          <box>
+            <size>0.024 0.049 0.030</size>
+          </box>
+        </geometry>
+      </collision>
+
+      <sensor name='depth_camera_sensor' type='depth_camera'>
+        <update_rate>1</update_rate>
+        <topic>depth_camera</topic>
+        <camera>
+          <distortion>
+            <k1>0.0</k1>
+            <k2>0.0</k2>
+            <k3>0.0</k3>
+            <p1>0.0</p1>
+            <p2>0.0</p2>
+          </distortion>
+        </camera>
+      </sensor>
+    </link>
+  </model>
+</sdf>

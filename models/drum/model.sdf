@@ -1,0 +1,44 @@
+<?xml version='1.0'?>
+<sdf version='1.7'>
+  <model name='drum'>
+    <static>false</static>
+    <link name='link'>
+      <pose>0 0 0 1.5708 0 0</pose>
+      
+      <inertial>
+        <mass>1</mass>
+        <inertia>
+          <ixx>0.166667</ixx>
+          <ixy>0</ixy>
+          <ixz>0</ixz>
+          <iyy>0.166667</iyy>
+          <iyz>0</iyz>
+          <izz>0.166667</izz>
+        </inertia>
+      </inertial>
+      
+      <visual name='visual'>
+        <geometry>
+          <mesh>
+            <uri>drum.obj</uri>
+            <scale>1 1 1</scale>
+          </mesh>
+        </geometry>
+        <material>
+          <ambient>0.5 0.5 0.5 1</ambient>
+          <diffuse>0.7 0.7 0.7 1</diffuse>
+          <specular>0.1 0.1 0.1 1</specular>
+        </material>
+      </visual>
+      
+      <collision name='collision'>
+        <geometry>
+          <mesh>
+            <uri>drum.obj</uri>
+            <scale>1 1 1</scale>
+          </mesh>
+        </geometry>
+      </collision>
+    </link>
+  </model>
+</sdf>

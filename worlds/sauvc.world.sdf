@@ -1,0 +1,84 @@
+<?xml version="1.0" ?>
+<sdf version="1.7">
+  <world name="sauvc_world">
+    <gravity>0 0 -9.81</gravity>
+    
+    <physics name="1ms" type="dart">
+      <max_step_size>0.001</max_step_size>
+      <real_time_factor>1.0</real_time_factor>
+    </physics>
+    <plugin
+      filename="gz-sim-physics-system"
+      name="gz::sim::systems::Physics">
+    </plugin>
+    <plugin
+      filename="gz-sim-user-commands-system"
+      name="gz::sim::systems::UserCommands">
+    </plugin>
+    <plugin
+      filename="gz-sim-scene-broadcaster-system"
+      name="gz::sim::systems::SceneBroadcaster">
+    </plugin>
+        <plugin filename="libgz-sim-buoyancy-system.so" name="gz::sim::systems::Buoyancy">
+      <fluid_density>1000</fluid_density>
+      <graded_buoyancy>true</graded_buoyancy>
+      <graded_buoyancy_max_depth>2.0</graded_buoyancy_max_depth>
+      <graded_buoyancy_above_depth>1.0</graded_buoyancy_above_depth>
+      
+      <!-- Damping to prevent oscillation -->
+      <linear_damping>0.5</linear_damping>
+      <angular_damping>0.5</angular_damping>
+      
+      <!-- Neutral buoyancy settings -->
+      <surface>0.0</surface>
+      <density_change_rate>0.0</density_change_rate>
+    </plugin>
+
+    <!-- Water current plugin for more realistic behavior -->
+    <!-- <plugin filename="libgz-sim-hydrodynamics-system.so" name="gz::sim::systems::Hydrodynamics">
+      <water_density>1000</water_density>
+      <water_velocity>0 0 0</water_velocity>
+      <linear_damping>0.3</linear_damping>
+      <angular_damping>0.3</angular_damping>
+    </plugin> -->
+
+    <light type="directional" name="sun">
+      <cast_shadows>true</cast_shadows>
+      <pose>0 0 10 0 0 0</pose>
+      <diffuse>1 1 1 1</diffuse>
+      <specular>0.5 0.5 0.5 1</specular>
+      <attenuation>
+        <range>1000</range>
+        <constant>0.9</constant>
+        <linear>0.01</linear>
+        <quadratic>0.001</quadratic>
+      </attenuation>
+      <direction>-0.5 0.1 -0.9</direction>
+    </light>
+
+    <!-- <gui fullscreen='0'>
+      <camera name='user_camera'>
+        <pose>8.89582 -13.5053 3.48143 0 0.308 1.808</pose>
+      </camera>
+    </gui> -->
+
+    <include><uri>model://pool_ground</uri></include>
+    <include><uri>model://wall</uri></include>
+
+    <include><uri>model://gate</uri><pose>7 0 0 0 0 0</pose></include>
+    <include><uri>model://green_mat</uri><pose>10 10 0 0 0 0</pose></include>
+
+    <include><uri>model://blue_drum</uri><pose>7 10 0 0 0 0</pose></include>
+    <include><uri>model://red_drum</uri><name>red_drum0</name><pose>9 10 0 0 0 0</pose></include>
+    <include><uri>model://red_drum</uri><name>red_drum1</name><pose>11 10 0 0 0 0</pose></include>
+    <include><uri>model://red_drum</uri><name>red_drum2</name><pose>13 10 0 0 0 0</pose></include>
+    
+    <include><uri>model://orange_flare</uri><pose>7 -3 0 0 0 0</pose></include>
+    <include><uri>model://yellow_flare</uri><pose>20 5 0.2 0 0 0</pose></include>
+    <include><uri>model://blue_flare</uri><pose>19.8 4 0.2 0 0 0</pose></include>
+    <include><uri>model://red_flare</uri><pose>19.6 3 0.2 0 0 0</pose></include>
+
+    <include><uri>model://golf_ball</uri><pose>7 10 0.2 0 0 0</pose></include>
+    <!-- <include><uri>model://ocra</uri><pose>7 -10 1.5 0 0 0</pose></include> -->
+    </world>
+</sdf>

@@ -1,0 +1,736 @@
+<?xml version="1.0" ?>
+<robot name="Body" xmlns:xacro="http://www.ros.org/wiki/xacro">
+
+<xacro:include filename="$(find fathom_description)/urdf/materials.xacro" />
+<xacro:include filename="$(find fathom_description)/urdf/Body.ros2control.xml" />
+<xacro:include filename="$(find fathom_description)/urdf/Body.gazebo" />
+<link name="base_link">
+  <inertial>
+    <origin xyz="-1.642714223150474e-09 -0.02560000631566277 0.04831529767943574" rpy="0 0 0"/>
+    <mass value="3.567967703380248"/>
+    <inertia ixx="0.024636" iyy="0.065446" izz="0.079052" ixy="0.0" iyz="0.0" ixz="0.0"/>
+  </inertial>
+  <visual>
+    <origin xyz="0 0 0" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="file://$(find fathom_description)/meshes/base_link.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+    <material name="silver"/>
+  </visual>
+  <collision>
+    <origin xyz="0 0 0" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="file://$(find fathom_description)/meshes/base_link.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+  </collision>
+</link>
+
+<link name="main_thruster_urdf_v1__3__1">
+  <inertial>
+    <origin xyz="-0.03721464935836896 -0.03219644369813632 -4.495782868901843e-07" rpy="0 0 0"/>
+    <mass value="0.9025336978695421"/>
+    <inertia ixx="0.001085" iyy="0.000969" izz="0.000828" ixy="-0.000223" iyz="0.0" ixz="-0.0"/>
+  </inertial>
+  <visual>
+    <origin xyz="0.165824 0.134549 -0.082445" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="file://$(find fathom_description)/meshes/main_thruster_urdf_v1__3__1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+    <material name="silver"/>
+  </visual>
+  <collision>
+    <origin xyz="0.165824 0.134549 -0.082445" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="file://$(find fathom_description)/meshes/main_thruster_urdf_v1__3__1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+  </collision>
+</link>
+
+<link name="main_thruster_urdf_v1__4__1">
+  <inertial>
+    <origin xyz="-5.825929008885102e-10 0.048203942385196284 -0.00989363829118968" rpy="0 0 0"/>
+    <mass value="0.9025336978695421"/>
+    <inertia ixx="0.000828" iyy="0.000797" izz="0.001257" ixy="-0.0" iyz="1e-06" ixz="-0.0"/>
+  </inertial>
+  <visual>
+    <origin xyz="-0.0 -0.032424 -0.081" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="file://$(find fathom_description)/meshes/main_thruster_urdf_v1__4__1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+    <material name="silver"/>
+  </visual>
+  <collision>
+    <origin xyz="-0.0 -0.032424 -0.081" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="file://$(find fathom_description)/meshes/main_thruster_urdf_v1__4__1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+  </collision>
+</link>
+
+<link name="main_thruster_urdf_v1__1__1">
+  <inertial>
+    <origin xyz="5.825929015798194e-10 -0.04220394238519634 -0.009893638291189735" rpy="0 0 0"/>
+    <mass value="0.9025336978695421"/>
+    <inertia ixx="0.000828" iyy="0.000797" izz="0.001257" ixy="-0.0" iyz="-1e-06" ixz="0.0"/>
+  </inertial>
+  <visual>
+    <origin xyz="-0.0 0.083624 -0.081" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="file://$(find fathom_description)/meshes/main_thruster_urdf_v1__1__1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+    <material name="silver"/>
+  </visual>
+  <collision>
+    <origin xyz="-0.0 0.083624 -0.081" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="file://$(find fathom_description)/meshes/main_thruster_urdf_v1__1__1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+  </collision>
+</link>
+
+<link name="main_thruster_urdf_v1__2__1">
+  <inertial>
+    <origin xyz="0.021524866496880346 -0.044251705106683345 -4.4957828670977307e-07" rpy="0 0 0"/>
+    <mass value="0.9025336978695421"/>
+    <inertia ixx="0.001088" iyy="0.000966" izz="0.000828" ixy="0.000222" iyz="0.0" ixz="-0.0"/>
+  </inertial>
+  <visual>
+    <origin xyz="-0.180164 0.12215 -0.082445" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="file://$(find fathom_description)/meshes/main_thruster_urdf_v1__2__1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+    <material name="silver"/>
+  </visual>
+  <collision>
+    <origin xyz="-0.180164 0.12215 -0.082445" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="file://$(find fathom_description)/meshes/main_thruster_urdf_v1__2__1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+  </collision>
+</link>
+
+<link name="main_thruster_urdf_v1_1">
+  <inertial>
+    <origin xyz="0.021524939518667352 0.04425164374676878 -4.4841310072041285e-07" rpy="0 0 0"/>
+    <mass value="0.9025336978695421"/>
+    <inertia ixx="0.001088" iyy="0.000966" izz="0.000828" ixy="-0.000222" iyz="0.0" ixz="0.0"/>
+  </inertial>
+  <visual>
+    <origin xyz="-0.181006 -0.072046 -0.082445" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="file://$(find fathom_description)/meshes/main_thruster_urdf_v1_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+    <material name="silver"/>
+  </visual>
+  <collision>
+    <origin xyz="-0.181006 -0.072046 -0.082445" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="file://$(find fathom_description)/meshes/main_thruster_urdf_v1_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+  </collision>
+</link>
+
+<link name="hello_1">
+  <inertial>
+    <origin xyz="-0.037214492439706676 0.032196580055163626 -4.4841310060939055e-07" rpy="0 0 0"/>
+    <mass value="0.9025336978695421"/>
+    <inertia ixx="0.001085" iyy="0.000969" izz="0.000828" ixy="0.000223" iyz="0.0" ixz="0.0"/>
+  </inertial>
+  <visual>
+    <origin xyz="0.165039 -0.082327 -0.082445" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="file://$(find fathom_description)/meshes/hello_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+    <material name="silver"/>
+  </visual>
+  <collision>
+    <origin xyz="0.165039 -0.082327 -0.082445" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="file://$(find fathom_description)/meshes/hello_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+  </collision>
+</link>
+
+<link name="pro_thru_urdf_v1__4__1">
+  <inertial>
+    <origin xyz="-2.0026821119551342e-07 -1.567978892974553e-07 0.011172331047509643" rpy="0 0 0"/>
+    <mass value="0.06247004422548632"/>
+    <inertia ixx="1.9e-05" iyy="1.9e-05" izz="2.9e-05" ixy="0.0" iyz="0.0" ixz="0.0"/>
+  </inertial>
+  <visual>
+    <origin xyz="0.00011 -0.081424 -0.066709" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="file://$(find fathom_description)/meshes/pro_thru_urdf_v1__4__1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+    <material name="silver"/>
+  </visual>
+  <collision>
+    <origin xyz="0.00011 -0.081424 -0.066709" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="file://$(find fathom_description)/meshes/pro_thru_urdf_v1__4__1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+  </collision>
+</link>
+
+<link name="pro_thru_urdf_v1__5__1">
+  <inertial>
+    <origin xyz="0.00885894015052649 0.006807356288790395 -4.0946181681378313e-07" rpy="0 0 0"/>
+    <mass value="0.06247004422548632"/>
+    <inertia ixx="2.5e-05" iyy="2.3e-05" izz="1.9e-05" ixy="5e-06" iyz="0.0" ixz="-0.0"/>
+  </inertial>
+  <visual>
+    <origin xyz="-0.19862 0.169625 -0.082445" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="file://$(find fathom_description)/meshes/pro_thru_urdf_v1__5__1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+    <material name="silver"/>
+  </visual>
+  <collision>
+    <origin xyz="-0.19862 0.169625 -0.082445" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="file://$(find fathom_description)/meshes/pro_thru_urdf_v1__5__1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+  </collision>
+</link>
+
+<link name="pro_thru_urdf_v1__2__1">
+  <inertial>
+    <origin xyz="0.008859165393431512 -0.006807020579821119 4.064635554801299e-07" rpy="0 0 0"/>
+    <mass value="0.06247004422548632"/>
+    <inertia ixx="2.5e-05" iyy="2.3e-05" izz="1.9e-05" ixy="-5e-06" iyz="0.0" ixz="0.0"/>
+  </inertial>
+  <visual>
+    <origin xyz="-0.199529 -0.119608 -0.082334" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="file://$(find fathom_description)/meshes/pro_thru_urdf_v1__2__1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+    <material name="silver"/>
+  </visual>
+  <collision>
+    <origin xyz="-0.199529 -0.119608 -0.082334" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="file://$(find fathom_description)/meshes/pro_thru_urdf_v1__2__1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+  </collision>
+</link>
+
+<link name="pro_thru_urdf_v1__1__1">
+  <inertial>
+    <origin xyz="-1.4454075079677834e-07 1.0107042899831775e-07 0.011172331047510711" rpy="0 0 0"/>
+    <mass value="0.06247004422548632"/>
+    <inertia ixx="1.9e-05" iyy="1.9e-05" izz="2.9e-05" ixy="-0.0" iyz="0.0" ixz="-0.0"/>
+  </inertial>
+  <visual>
+    <origin xyz="0.00011 0.126624 -0.066709" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="file://$(find fathom_description)/meshes/pro_thru_urdf_v1__1__1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+    <material name="silver"/>
+  </visual>
+  <collision>
+    <origin xyz="0.00011 0.126624 -0.066709" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="file://$(find fathom_description)/meshes/pro_thru_urdf_v1__1__1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+  </collision>
+</link>
+
+<link name="pro_thru_urdf_v1_1">
+  <inertial>
+    <origin xyz="0.008858682154653963 -0.006806403194302757 4.0646355511930743e-07" rpy="0 0 0"/>
+    <mass value="0.06247004422548632"/>
+    <inertia ixx="2.5e-05" iyy="2.3e-05" izz="1.9e-05" ixy="-5e-06" iyz="0.0" ixz="0.0"/>
+  </inertial>
+  <visual>
+    <origin xyz="0.20701 0.164698 -0.082334" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="file://$(find fathom_description)/meshes/pro_thru_urdf_v1_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+    <material name="silver"/>
+  </visual>
+  <collision>
+    <origin xyz="0.20701 0.164698 -0.082334" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="file://$(find fathom_description)/meshes/pro_thru_urdf_v1_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+  </collision>
+</link>
+
+<link name="support_thru_urdf_v1__5__1">
+  <inertial>
+    <origin xyz="0.0004906283719715299 -0.0003762814257698699 0.043657478810742986" rpy="0 0 0"/>
+    <mass value="0.5240955387817633"/>
+    <inertia ixx="0.00015" iyy="0.000162" izz="0.000179" ixy="2.2e-05" iyz="-0.0" ixz="0.0"/>
+  </inertial>
+  <visual>
+    <origin xyz="0.186462 0.180486 -0.038672" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="file://$(find fathom_description)/meshes/support_thru_urdf_v1__5__1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+    <material name="silver"/>
+  </visual>
+  <collision>
+    <origin xyz="0.186462 0.180486 -0.038672" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="file://$(find fathom_description)/meshes/support_thru_urdf_v1__5__1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+  </collision>
+</link>
+
+<link name="support_thru_urdf_v1__4__1">
+  <inertial>
+    <origin xyz="0.04365792780643713 -4.37081340565193e-07 0.0006180502689701189" rpy="0 0 0"/>
+    <mass value="0.5240955387817633"/>
+    <inertia ixx="0.000179" iyy="0.000179" izz="0.000133" ixy="0.0" iyz="0.0" ixz="0.0"/>
+  </inertial>
+  <visual>
+    <origin xyz="0.043773 0.126624 -0.092623" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="file://$(find fathom_description)/meshes/support_thru_urdf_v1__4__1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+    <material name="silver"/>
+  </visual>
+  <collision>
+    <origin xyz="0.043773 0.126624 -0.092623" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="file://$(find fathom_description)/meshes/support_thru_urdf_v1__4__1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+  </collision>
+</link>
+
+<link name="support_thru_urdf_v1__3__1">
+  <inertial>
+    <origin xyz="0.0004901116107489667 -0.000375898811287953 0.043657478810743416" rpy="0 0 0"/>
+    <mass value="0.5240955387817633"/>
+    <inertia ixx="0.00015" iyy="0.000162" izz="0.000179" ixy="2.2e-05" iyz="-0.0" ixz="0.0"/>
+  </inertial>
+  <visual>
+    <origin xyz="-0.220078 -0.103819 -0.038672" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="file://$(find fathom_description)/meshes/support_thru_urdf_v1__3__1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+    <material name="silver"/>
+  </visual>
+  <collision>
+    <origin xyz="-0.220078 -0.103819 -0.038672" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="file://$(find fathom_description)/meshes/support_thru_urdf_v1__3__1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+  </collision>
+</link>
+
+<link name="support_thru_urdf_v1__2__1">
+  <inertial>
+    <origin xyz="0.027092230602163175 -0.03424591201581477 -5.337114628994888e-06" rpy="0 0 0"/>
+    <mass value="0.5240955387817633"/>
+    <inertia ixx="0.00015" iyy="0.000162" izz="0.000179" ixy="-2.2e-05" iyz="0.0" ixz="0.0"/>
+  </inertial>
+  <visual>
+    <origin xyz="-0.192566 0.119213 -0.082445" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="file://$(find fathom_description)/meshes/support_thru_urdf_v1__2__1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+    <material name="silver"/>
+  </visual>
+  <collision>
+    <origin xyz="-0.192566 0.119213 -0.082445" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="file://$(find fathom_description)/meshes/support_thru_urdf_v1__2__1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+  </collision>
+</link>
+
+<link name="support_thru_urdf_v1_1">
+  <inertial>
+    <origin xyz="0.043662261580020234 4.770854922758749e-06 0.0006180502689701883" rpy="0 0 0"/>
+    <mass value="0.5240955387817633"/>
+    <inertia ixx="0.000179" iyy="0.000179" izz="0.000133" ixy="-0.0" iyz="-0.0" ixz="0.0"/>
+  </inertial>
+  <visual>
+    <origin xyz="0.043773 -0.081424 -0.092623" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="file://$(find fathom_description)/meshes/support_thru_urdf_v1_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+    <material name="silver"/>
+  </visual>
+  <collision>
+    <origin xyz="0.043773 -0.081424 -0.092623" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="file://$(find fathom_description)/meshes/support_thru_urdf_v1_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+  </collision>
+</link>
+
+<link name="pro_thru_urdf_v1__3__1">
+  <inertial>
+    <origin xyz="0.008858805119924124 0.006806583740888633 3.507360955001815e-07" rpy="0 0 0"/>
+    <mass value="0.06247004422548632"/>
+    <inertia ixx="2.5e-05" iyy="2.3e-05" izz="1.9e-05" ixy="5e-06" iyz="-0.0" ixz="0.0"/>
+  </inertial>
+  <visual>
+    <origin xyz="0.206225 -0.112476 -0.082334" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="file://$(find fathom_description)/meshes/pro_thru_urdf_v1__3__1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+    <material name="silver"/>
+  </visual>
+  <collision>
+    <origin xyz="0.206225 -0.112476 -0.082334" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="file://$(find fathom_description)/meshes/pro_thru_urdf_v1__3__1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+  </collision>
+</link>
+
+<link name="support_thru_urdf_v1__1__1">
+  <inertial>
+    <origin xyz="0.0004934257539291054 0.00037298128064372493 0.04366181258432679" rpy="0 0 0"/>
+    <mass value="0.5240955387817633"/>
+    <inertia ixx="0.00015" iyy="0.000162" izz="0.000179" ixy="-2.2e-05" iyz="0.0" ixz="-0.0"/>
+  </inertial>
+  <visual>
+    <origin xyz="0.185677 -0.128264 -0.038672" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="file://$(find fathom_description)/meshes/support_thru_urdf_v1__1__1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+    <material name="silver"/>
+  </visual>
+  <collision>
+    <origin xyz="0.185677 -0.128264 -0.038672" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="file://$(find fathom_description)/meshes/support_thru_urdf_v1__1__1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+  </collision>
+</link>
+
+<link name="back_thru_urdf_v1__4__1">
+  <inertial>
+    <origin xyz="-0.0014297582049557223 0.01892120855582738 0.0007229818356684486" rpy="0 0 0"/>
+    <mass value="0.03746286794566644"/>
+    <inertia ixx="8e-06" iyy="7e-06" izz="6e-06" ixy="1e-06" iyz="0.0" ixz="0.0"/>
+  </inertial>
+  <visual>
+    <origin xyz="-0.249559 0.150505 -0.082445" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="file://$(find fathom_description)/meshes/back_thru_urdf_v1__4__1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+    <material name="silver"/>
+  </visual>
+  <collision>
+    <origin xyz="-0.249559 0.150505 -0.082445" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="file://$(find fathom_description)/meshes/back_thru_urdf_v1__4__1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+  </collision>
+</link>
+
+<link name="back_thru_urdf_v1__5__1">
+  <inertial>
+    <origin xyz="-0.0014305526947672176 -0.018920898528533528 -0.0007230639016837098" rpy="0 0 0"/>
+    <mass value="0.03746286794566644"/>
+    <inertia ixx="8e-06" iyy="7e-06" izz="6e-06" ixy="-1e-06" iyz="0.0" ixz="-0.0"/>
+  </inertial>
+  <visual>
+    <origin xyz="-0.250469 -0.100488 -0.082334" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="file://$(find fathom_description)/meshes/back_thru_urdf_v1__5__1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+    <material name="silver"/>
+  </visual>
+  <collision>
+    <origin xyz="-0.250469 -0.100488 -0.082334" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="file://$(find fathom_description)/meshes/back_thru_urdf_v1__5__1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+  </collision>
+</link>
+
+<link name="back_thru_urdf_v1__3__1">
+  <inertial>
+    <origin xyz="-0.015875101313479294 -0.0007235480953746293 0.007219358895695388" rpy="0 0 0"/>
+    <mass value="0.03746286794566644"/>
+    <inertia ixx="6e-06" iyy="6e-06" izz="9e-06" ixy="0.0" iyz="-0.0" ixz="-0.0"/>
+  </inertial>
+  <visual>
+    <origin xyz="-0.015765 -0.081424 -0.118751" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="file://$(find fathom_description)/meshes/back_thru_urdf_v1__3__1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+    <material name="silver"/>
+  </visual>
+  <collision>
+    <origin xyz="-0.015765 -0.081424 -0.118751" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="file://$(find fathom_description)/meshes/back_thru_urdf_v1__3__1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+  </collision>
+</link>
+
+<link name="back_thru_urdf_v1__2__1">
+  <inertial>
+    <origin xyz="0.0007232467567344729 -0.015874799974839995 0.007219358895695249" rpy="0 0 0"/>
+    <mass value="0.03746286794566644"/>
+    <inertia ixx="6e-06" iyy="6e-06" izz="9e-06" ixy="-0.0" iyz="-0.0" ixz="0.0"/>
+  </inertial>
+  <visual>
+    <origin xyz="0.00011 0.110749 -0.118751" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="file://$(find fathom_description)/meshes/back_thru_urdf_v1__2__1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+    <material name="silver"/>
+  </visual>
+  <collision>
+    <origin xyz="0.00011 0.110749 -0.118751" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="file://$(find fathom_description)/meshes/back_thru_urdf_v1__2__1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+  </collision>
+</link>
+
+<link name="back_thru_urdf_v1__1__1">
+  <inertial>
+    <origin xyz="0.008682839447360452 0.00575883257370749 -0.015874715831469863" rpy="0 0 0"/>
+    <mass value="0.03746286794566644"/>
+    <inertia ixx="8e-06" iyy="7e-06" izz="6e-06" ixy="1e-06" iyz="-0.0" ixz="0.0"/>
+  </inertial>
+  <visual>
+    <origin xyz="0.164958 -0.144184 -0.098209" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="file://$(find fathom_description)/meshes/back_thru_urdf_v1__1__1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+    <material name="silver"/>
+  </visual>
+  <collision>
+    <origin xyz="0.164958 -0.144184 -0.098209" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="file://$(find fathom_description)/meshes/back_thru_urdf_v1__1__1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+  </collision>
+</link>
+
+<link name="back_thru_urdf_v1_1">
+  <inertial>
+    <origin xyz="0.0179139640664554 0.006255718856984643 -0.0007230639016839874" rpy="0 0 0"/>
+    <mass value="0.03746286794566644"/>
+    <inertia ixx="8e-06" iyy="7e-06" izz="6e-06" ixy="-1e-06" iyz="0.0" ixz="-0.0"/>
+  </inertial>
+  <visual>
+    <origin xyz="0.175415 0.208994 -0.082334" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="file://$(find fathom_description)/meshes/back_thru_urdf_v1_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+    <material name="silver"/>
+  </visual>
+  <collision>
+    <origin xyz="0.175415 0.208994 -0.082334" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="file://$(find fathom_description)/meshes/back_thru_urdf_v1_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+  </collision>
+</link>
+
+<link name="camera_1">
+  <inertial>
+    <origin xyz="0.010000000000000092 -2.0816681711721685e-17 1.3877787807814457e-17" rpy="0 0 0"/>
+    <mass value="0.0628"/>
+    <inertia ixx="4e-06" iyy="4e-06" izz="4e-06" ixy="0.0" iyz="-0.0" ixz="0.0"/>
+  </inertial>
+  <visual>
+    <origin xyz="-0.224 0.0256 -0.089885" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="file://$(find fathom_description)/meshes/camera_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+    <material name="silver"/>
+  </visual>
+  <collision>
+    <origin xyz="-0.224 0.0256 -0.089885" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="file://$(find fathom_description)/meshes/camera_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+  </collision>
+</link>
+
+<link name="sensor_1">
+  <inertial>
+    <origin xyz="-0.010000000000000092 -2.0816681711721685e-17 1.3877787807814457e-17" rpy="0 0 0"/>
+    <mass value="0.0628"/>
+    <inertia ixx="4e-06" iyy="4e-06" izz="4e-06" ixy="0.0" iyz="-0.0" ixz="-0.0"/>
+  </inertial>
+  <visual>
+    <origin xyz="0.224 0.0256 -0.089885" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="file://$(find fathom_description)/meshes/sensor_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+    <material name="silver"/>
+  </visual>
+  <collision>
+    <origin xyz="0.224 0.0256 -0.089885" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="file://$(find fathom_description)/meshes/sensor_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+  </collision>
+</link>
+
+<joint name="Rigid 1" type="fixed">
+  <origin xyz="-0.165824 -0.134549 0.082445" rpy="0 0 0"/>
+  <parent link="base_link"/>
+  <child link="main_thruster_urdf_v1__3__1"/>
+</joint>
+
+<joint name="Rigid 2" type="fixed">
+  <origin xyz="0.0 0.032424 0.081" rpy="0 0 0"/>
+  <parent link="base_link"/>
+  <child link="main_thruster_urdf_v1__4__1"/>
+</joint>
+
+<joint name="Rigid 3" type="fixed">
+  <origin xyz="0.0 -0.083624 0.081" rpy="0 0 0"/>
+  <parent link="base_link"/>
+  <child link="main_thruster_urdf_v1__1__1"/>
+</joint>
+
+<joint name="Rigid 4" type="fixed">
+  <origin xyz="0.180164 -0.12215 0.082445" rpy="0 0 0"/>
+  <parent link="base_link"/>
+  <child link="main_thruster_urdf_v1__2__1"/>
+</joint>
+
+<joint name="Rigid 5" type="fixed">
+  <origin xyz="0.181006 0.072046 0.082445" rpy="0 0 0"/>
+  <parent link="base_link"/>
+  <child link="main_thruster_urdf_v1_1"/>
+</joint>
+
+<joint name="Rigid 6" type="fixed">
+  <origin xyz="-0.165039 0.082327 0.082445" rpy="0 0 0"/>
+  <parent link="base_link"/>
+  <child link="hello_1"/>
+</joint>
+
+<joint name="Revolute 7" type="continuous">
+  <origin xyz="0.043663 0.0 -0.025914" rpy="0 0 0"/>
+  <parent link="support_thru_urdf_v1_1"/>
+  <child link="pro_thru_urdf_v1__4__1"/>
+  <axis xyz="0.0 0.0 -1.0"/>
+</joint>
+
+<joint name="Revolute 8" type="continuous">
+  <origin xyz="0.006054 -0.050412 0.0" rpy="0 0 0"/>
+  <parent link="support_thru_urdf_v1__2__1"/>
+  <child link="pro_thru_urdf_v1__5__1"/>
+  <axis xyz="-0.792958 -0.609276 -0.0"/>
+</joint>
+
+<joint name="Revolute 10" type="continuous">
+  <origin xyz="-0.020549 0.015789 0.043662" rpy="0 0 0"/>
+  <parent link="support_thru_urdf_v1__3__1"/>
+  <child link="pro_thru_urdf_v1__2__1"/>
+  <axis xyz="-0.792958 0.609276 0.0"/>
+</joint>
+
+<joint name="Revolute 11" type="continuous">
+  <origin xyz="0.043663 0.0 -0.025914" rpy="0 0 0"/>
+  <parent link="support_thru_urdf_v1__4__1"/>
+  <child link="pro_thru_urdf_v1__1__1"/>
+  <axis xyz="0.0 -0.0 -1.0"/>
+</joint>
+
+<joint name="Revolute 12" type="continuous">
+  <origin xyz="-0.020548 0.015788 0.043662" rpy="0 0 0"/>
+  <parent link="support_thru_urdf_v1__5__1"/>
+  <child link="pro_thru_urdf_v1_1"/>
+  <axis xyz="-0.792958 0.609276 0.0"/>
+</joint>
+
+<joint name="Rigid 13" type="fixed">
+  <origin xyz="-0.020638 -0.045937 -0.043773" rpy="0 0 0"/>
+  <parent link="main_thruster_urdf_v1__3__1"/>
+  <child link="support_thru_urdf_v1__5__1"/>
+</joint>
+
+<joint name="Rigid 14" type="fixed">
+  <origin xyz="-0.043773 -0.043 0.011623" rpy="0 0 0"/>
+  <parent link="main_thruster_urdf_v1__1__1"/>
+  <child link="support_thru_urdf_v1__4__1"/>
+</joint>
+
+<joint name="Rigid 15" type="fixed">
+  <origin xyz="0.039072 0.031773 -0.043773" rpy="0 0 0"/>
+  <parent link="main_thruster_urdf_v1_1"/>
+  <child link="support_thru_urdf_v1__3__1"/>
+</joint>
+
+<joint name="Rigid 16" type="fixed">
+  <origin xyz="0.012402 0.002937 0.0" rpy="0 0 0"/>
+  <parent link="main_thruster_urdf_v1__2__1"/>
+  <child link="support_thru_urdf_v1__2__1"/>
+</joint>
+
+<joint name="Rigid 17" type="fixed">
+  <origin xyz="-0.043773 0.049 0.011623" rpy="0 0 0"/>
+  <parent link="main_thruster_urdf_v1__4__1"/>
+  <child link="support_thru_urdf_v1_1"/>
+</joint>
+
+<joint name="Revolute 18" type="continuous">
+  <origin xyz="-0.020548 -0.015788 0.043662" rpy="0 0 0"/>
+  <parent link="support_thru_urdf_v1__1__1"/>
+  <child link="pro_thru_urdf_v1__3__1"/>
+  <axis xyz="-0.792958 -0.609276 -0.0"/>
+</joint>
+
+<joint name="Rigid 19" type="fixed">
+  <origin xyz="-0.020638 0.045937 -0.043773" rpy="0 0 0"/>
+  <parent link="hello_1"/>
+  <child link="support_thru_urdf_v1__1__1"/>
+</joint>
+
+<joint name="Rigid 20" type="fixed">
+  <origin xyz="0.056993 -0.031292 0.0" rpy="0 0 0"/>
+  <parent link="support_thru_urdf_v1__2__1"/>
+  <child link="back_thru_urdf_v1__4__1"/>
+</joint>
+
+<joint name="Rigid 21" type="fixed">
+  <origin xyz="0.030391 -0.003331 0.043662" rpy="0 0 0"/>
+  <parent link="support_thru_urdf_v1__3__1"/>
+  <child link="back_thru_urdf_v1__5__1"/>
+</joint>
+
+<joint name="Rigid 22" type="fixed">
+  <origin xyz="0.059538 0.0 0.026128" rpy="0 0 0"/>
+  <parent link="support_thru_urdf_v1_1"/>
+  <child link="back_thru_urdf_v1__3__1"/>
+</joint>
+
+<joint name="Rigid 23" type="fixed">
+  <origin xyz="0.043663 0.015875 0.026128" rpy="0 0 0"/>
+  <parent link="support_thru_urdf_v1__4__1"/>
+  <child link="back_thru_urdf_v1__2__1"/>
+</joint>
+
+<joint name="Rigid 24" type="fixed">
+  <origin xyz="0.020719 0.01592 0.059537" rpy="0 0 0"/>
+  <parent link="support_thru_urdf_v1__1__1"/>
+  <child link="back_thru_urdf_v1__1__1"/>
+</joint>
+
+<joint name="Rigid 25" type="fixed">
+  <origin xyz="0.011047 -0.028508 0.043662" rpy="0 0 0"/>
+  <parent link="support_thru_urdf_v1__5__1"/>
+  <child link="back_thru_urdf_v1_1"/>
+</joint>
+
+<joint name="Rigid 26" type="fixed">
+  <origin xyz="0.224 -0.0256 0.089885" rpy="0 0 0"/>
+  <parent link="base_link"/>
+  <child link="camera_1"/>
+</joint>
+
+<joint name="Rigid 27" type="fixed">
+  <origin xyz="-0.224 -0.0256 0.089885" rpy="0 0 0"/>
+  <parent link="base_link"/>
+  <child link="sensor_1"/>
+</joint>
+
+</robot>

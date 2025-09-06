@@ -1,0 +1,116 @@
+<?xml version='1.0'?>
+<sdf version='1.7'>
+  <model name='q_gate'>
+    <static>false</static>
+
+    <link name='top_bar'>
+      <pose>0 0 1.5 1.57079 -1.57079 3.14159</pose>
+      <inertial>
+        <mass>1</mass>
+        <inertia>
+          <ixx>0.145833</ixx> <ixy>0</ixy> <ixz>0</ixz>
+          <iyy>0.145833</iyy> <iyz>0</iyz>
+          <izz>0.125</izz>
+        </inertia>
+      </inertial>
+      <visual name='bar_visual'>
+        <geometry>
+          <cylinder>
+            <radius>0.02</radius>
+            <length>1.5</length>
+          </cylinder>
+        </geometry>
+        <material>
+          <ambient>0.3 0.3 0.3 1</ambient>
+          <diffuse>0.7 0.7 0.7 1</diffuse>
+          <specular>0.1 0.1 0.1 1</specular>
+        </material>
+      </visual>
+      <collision name='bar_collision'>
+        <geometry>
+          <cylinder>
+            <radius>0.02</radius>
+            <length>1.5</length>
+          </cylinder>
+        </geometry>
+      </collision>
+    </link>
+
+    <link name='left_post'>
+      <pose>0 0.75 0.75 0 0 0</pose>
+      <inertial>
+        <mass>1</mass>
+        <inertia>
+          <ixx>0.145833</ixx> <ixy>0</ixy> <ixz>0</ixz>
+          <iyy>0.145833</iyy> <iyz>0</iyz>
+          <izz>0.125</izz>
+        </inertia>
+      </inertial>
+      <visual name='post_visual'>
+        <geometry>
+          <cylinder>
+            <radius>0.02</radius>
+            <length>1.5</length>
+          </cylinder>
+        </geometry>
+        <material>
+          <ambient>0.3 0.3 0.3 1</ambient>
+          <diffuse>0.7 0.7 0.7 1</diffuse>
+          <specular>0.1 0.1 0.1 1</specular>
+        </material>
+      </visual>
+      <collision name='post_collision'>
+        <geometry>
+          <cylinder>
+            <radius>0.02</radius>
+            <length>1.5</length>
+          </cylinder>
+        </geometry>
+      </collision>
+    </link>
+
+    <link name='right_post'>
+      <pose>0 -0.75 0.75 0 0 0</pose>
+      <inertial>
+        <mass>1</mass>
+        <inertia>
+          <ixx>0.145833</ixx> <ixy>0</ixy> <ixz>0</ixz>
+          <iyy>0.145833</iyy> <iyz>0</iyz>
+          <izz>0.125</izz>
+        </inertia>
+      </inertial>
+      <visual name='post_visual'>
+        <geometry>
+          <cylinder>
+            <radius>0.02</radius>
+            <length>1.5</length>
+          </cylinder>
+        </geometry>
+        <material>
+          <ambient>0.3 0.3 0.3 1</ambient>
+          <diffuse>0.7 0.7 0.7 1</diffuse>
+          <specular>0.1 0.1 0.1 1</specular>
+        </material>
+      </visual>
+      <collision name='post_collision'>
+        <geometry>
+          <cylinder>
+            <radius>0.02</radius>
+            <length>1.5</length>
+          </cylinder>
+        </geometry>
+      </collision>
+    </link>
+
+    <joint name='top_to_left_joint' type='fixed'>
+      <parent>top_bar</parent>
+      <child>left_post</child>
+    </joint>
+
+    <joint name='top_to_right_joint' type='fixed'>
+      <parent>top_bar</parent>
+      <child>right_post</child>
+    </joint>
+
+  </model>
+</sdf>

@@ -1,0 +1,92 @@
+<?xml version='1.0'?>
+<sdf version='1.7'>
+  <model name='gate'>
+    <static>true</static>
+
+    <link name='left_post'>
+      <pose>-0.75 0 0.75 0 0 0</pose>
+      <visual name='post_visual'>
+        <geometry>
+          <cylinder>
+            <radius>0.02</radius>
+            <length>1.5</length>
+          </cylinder>
+        </geometry>
+        <material>
+          <ambient>0.8 0.1 0.1 1</ambient>
+          <diffuse>1.0 0.2 0.2 1</diffuse>
+          <specular>0.1 0.1 0.1 1</specular>
+        </material>
+      </visual>
+      <collision name='post_collision'>
+        <geometry>
+          <cylinder>
+            <radius>0.02</radius>
+            <length>1.5</length>
+          </cylinder>
+        </geometry>
+      </collision>
+    </link>
+
+    <link name='right_post'>
+      <pose>0.75 0 0.75 0 0 0</pose>
+      <visual name='post_visual'>
+        <geometry>
+          <cylinder>
+            <radius>0.02</radius>
+            <length>1.5</length>
+          </cylinder>
+        </geometry>
+        <material>
+          <ambient>0.1 0.8 0.1 1</ambient>
+          <diffuse>0.2 1.0 0.2 1</diffuse>
+          <specular>0.1 0.1 0.1 1</specular>
+        </material>
+      </visual>
+      <collision name='post_collision'>
+        <geometry>
+          <cylinder>
+            <radius>0.02</radius>
+            <length>1.5</length>
+          </cylinder>
+        </geometry>
+      </collision>
+    </link>
+
+    <link name='top_bar'>
+      <pose>0 0 1.5 0 1.5707 0</pose>
+      <visual name='bar_visual'>
+        <geometry>
+          <cylinder>
+            <radius>0.02</radius>
+            <length>1.5</length>
+          </cylinder>
+        </geometry>
+        <material>
+          <ambient>0.3 0.3 0.3 1</ambient>
+          <diffuse>0.7 0.7 0.7 1</diffuse>
+          <specular>0.1 0.1 0.1 1</specular>
+        </material>
+      </visual>
+      <collision name='bar_collision'>
+        <geometry>
+          <cylinder>
+            <radius>0.02</radius>
+            <length>1.5</length>
+          </cylinder>
+        </geometry>
+      </collision>
+    </link>
+
+    <joint name='left_post_joint' type='fixed'>
+      <parent>top_bar</parent>
+      <child>left_post</child>
+    </joint>
+
+    <joint name='right_post_joint' type='fixed'>
+      <parent>top_bar</parent>
+      <child>right_post</child>
+    </joint>
+
+  </model>
+</sdf>
