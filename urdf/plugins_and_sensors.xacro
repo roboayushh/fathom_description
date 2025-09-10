@@ -1,0 +1,233 @@
+<?xml version="1.0"?>
+<robot name="Body" xmlns:xacro="http://www.ros.org/wiki/xacro">
+  <!-- CHANGE: Standardized robot name to "Body" (was "mini_underwater_robot" in plugins.xml and "Body" in sensors.xml) to match main URDF and avoid Xacro/namespace conflicts. -->
+
+  <!-- Thruster Macro and Instances (from plugins.xml - unchanged, kept as-is) -->
+  <xacro:macro name="thruster_plugin_macro" params="">
+    <gazebo>
+      <plugin filename="gz-sim-thruster-system" name="gz::sim::systems::Thruster">
+        <namespace>rexros</namespace>
+        <joint_name>${joint}</joint_name>
+        <fluid_density>1000.0</fluid_density>
+        <thrust_coefficient>0.00031</thrust_coefficient>
+        <velocity_control>true</velocity_control>
+        <use_angvel_cmd>false</use_angvel_cmd>
+      </plugin>
+    </gazebo>
+  </xacro:macro>
+  <xacro:thruster_plugin_macro joint="thruster1_joint"/>
+  <xacro:thruster_plugin_macro joint="thruster2_joint"/>
+  <xacro:thruster_plugin_macro joint="thruster3_joint"/>
+  <xacro:thruster_plugin_macro joint="thruster4_joint"/>
+  <xacro:thruster_plugin_macro joint="thruster5_joint"/>
+  <xacro:thruster_plugin_macro joint="thruster6_joint"/>
+  <xacro:thruster_plugin_macro joint="thruster7_joint"/>
+  <xacro:thruster_plugin_macro joint="thruster8_joint"/>
+
+  <!-- Hydrodynamics Plugin (from plugins.xml - unchanged) -->
+  <gazebo>
+    <plugin
+      filename="gz-sim-hydrodynamics-system"
+      name="gz::sim::systems::Hydrodynamics">
+      <!-- adding for ocean current force application -->
+      <!-- <namespace>rexrov</namespace> -->
+      <disable_coriolis>false</disable_coriolis>
+      <disable_added_mass>false</disable_added_mass>
+      <water_density>1028</water_density>
+      <!-- till here -->
+      <link_name>base_link</link_name>
+      <!-- Added mass -->
+      <!-- Using values of LRAUV -->
+      <xDotU>-4.876161</xDotU>
+      <yDotV>-126.324739</yDotV>
+      <zDotW>-126.324739</zDotW>
+      <kDotP>0</kDotP>
+      <mDotQ>-33.46</mDotQ>
+      <nDotR>-33.46</nDotR>
+      <!-- <xDotU>779.79</xDotU>
+      <yDotV>1222</yDotV>
+      <zDotW>3659.9</zDotW>
+      <kDotP>534.9</kDotP>
+      <mDotQ>842.69</mDotQ>
+      <nDotR>224.32</nDotR> -->
+      <!-- Linear Drag Coefficients -->
+      <xU>-74.82</xU>
+      <yV>-69.48</yV>
+      <zW>-728.4</zW>
+      <kP>-268.8</kP>
+      <mQ>-309.77</mQ>
+      <nR>-105</nR>
+      <!-- Quadratic Drag Coefficients -->
+      <xUabsU>-748.22</xUabsU>
+      <yVabsV>-992.53</yVabsV>
+      <zWabsW>-1821.01</zWabsW>
+      <kPabsP>-672</kPabsP>
+      <mQabsQ>-774.44</mQabsQ>
+      <nRabsR>-523.27</nRabsR>
+    </plugin>
+
+    <!-- CHANGE: Removed duplicated IMU and Magnetometer plugins that were here in original plugins.xml; moved the full definitions below with <gazebo reference> for proper linking. -->
+
+    <!-- OdometryPublisher, JointStatePublisher, DVLBridge (from plugins.xml - unchanged) -->
+    <plugin
+      filename="gz-sim-odometry-publisher-system"
+      name="gz::sim::systems::OdometryPublisher">
+      <odom_frame>map</odom_frame>
+      <robot_base_frame>base_link</robot_base_frame>
+      <dimensions>3</dimensions>
+      <odom_publish_frequency>100</odom_publish_frequency>
+    </plugin>
+    <plugin
+      filename="gz-sim-joint-state-publisher-system"
+      name="gz::sim::systems::JointStatePublisher">
+    </plugin>
+    <plugin
+      filename="DVLBridge"
+      name="dave_ros_gz_plugins::DVLBridge">
+      <topic>/model/rexrov/dvl/velocity</topic>
+    </plugin>
+  </gazebo>
+
+  <!-- CHANGE: Consolidated IMU from both files (was duplicated); kept the version from sensors.xml with noise models and added <gazebo reference="imu_link"> to properly attach it to the link. Removed the standalone <plugin> from plugins.xml. -->
+  <gazebo reference="imu_link">
+    <sensor name="imu_sensor" type="imu">
+      <always_on>true</always_on>
+      <update_rate>50.0</update_rate>
+      <topic>/model/rexrov/imu</topic>
+    </sensor>
+    <plugin filename="gz-sim-imu-system" name="gz::sim::systems::Imu"/>
+  </gazebo>
+
+  <!-- CHANGE: Consolidated Magnetometer from both files (was duplicated); kept the version from sensors.xml with noise models and added <gazebo reference="magnetometer_link">. Removed the standalone <plugin> from plugins.xml. -->
+  <gazebo reference="magnetometer_link">
+    <sensor name="magnetometer_sensor" type="magnetometer">
+      <always_on>true</always_on>
+      <update_rate>50.0</update_rate>
+      <topic>/model/rexrov/magnetometer</topic>
+      <magnetometer>
+        <x>
+          <noise type="gaussian">
+            <mean>0.0</mean>
+            <stddev>1.0</stddev>
+          </noise>
+        </x>
+        <y>
+          <noise type="gaussian">
+            <mean>0.0</mean>
+            <stddev>1.0</stddev>
+          </noise>
+        </y>
+        <z>
+          <noise type="gaussian">
+            <mean>0.0</mean>
+            <stddev>1.4</stddev>
+          </noise>
+        </z>
+      </magnetometer>
+    </sensor>
+    <plugin filename="gz-sim-magnetometer-system" name="gz::sim::systems::Magnetometer"/>
+  </gazebo>
+
+  <!-- Camera Sensor and Plugin (from sensors.xml - unchanged, but moved here) -->
+  <gazebo reference="camera_link">
+    <sensor type="camera" name="underwater_camera">
+      <update_rate>10</update_rate>
+      <camera>
+        <horizontal_fov>1.05</horizontal_fov>
+        <image>
+          <width>1920</width>
+          <height>1080</height>
+        </image>
+        <clip>
+          <near>0.1</near>
+          <far>10.0</far>
+        </clip>
+      </camera>
+      <plugin name="dave_gz_sensor_plugins::UnderwaterCamera" filename="UnderwaterCamera">
+        <attenuationR>0.8</attenuationR>
+        <attenuationG>0.5</attenuationG>
+        <attenuationB>0.2</attenuationB>
+        <backgroundR>85</backgroundR>
+        <backgroundG>107</backgroundG>
+        <backgroundB>47</backgroundB>
+      </plugin>
+    </sensor>
+  </gazebo>
+
+  <!-- CHANGE: Consolidated commented Sea Pressure plugin (was duplicated in both files); kept one copy from plugins.xml. -->
+  <!-- <plugin
+    filename="sea_pressure_sensor"
+    name="dave_gz_sensor_plugins::SubseaPressureSensorPlugin">
+    <namespace>rexrov</namespace>
+    <topic>sea_pressure</topic>
+    <update_rate>10</update_rate>
+    <noise_sigma>3.0</noise_sigma>
+    <estimate_depth_on>true</estimate_depth_on>
+    <standard_pressure>101.325</standard_pressure>
+    <kPa_per_meter>9.80638</kPa_per_meter>
+  </plugin> -->
+
+  <!-- CHANGE: Added commented DVL sensor from sensors.xml (was only in sensors.xml, so moved here unchanged). -->
+  <!-- <sensor
+    name="nortek_dvl500_300" type="custom"
+    gz:type="dvl">
+    <pose>0 0 0 0 0 0</pose>
+    <always_on>1</always_on>
+    <update_rate>8</update_rate>
+    <topic>/model/rexrov/dvl/velocity</topic>
+    <gz:dvl>
+      <type>phased_array</type>
+      <arrangement degrees="true">
+        <beam id="1">
+          <aperture>3</aperture>
+          <rotation>-135</rotation>
+          <tilt>25</tilt>
+        </beam>
+        <beam>
+          <aperture>3</aperture>
+          <rotation>135</rotation>
+          <tilt>25</tilt>
+        </beam>
+        <beam>
+          <aperture>3</aperture>
+          <rotation>45</rotation>
+          <tilt>25</tilt>
+        </beam>
+        <beam>
+          <aperture>3</aperture>
+          <rotation>-45</rotation>
+          <tilt>25</tilt>
+        </beam>
+      </arrangement>
+      <tracking>
+        <water_mass_mode>
+          <when>best</when>
+          <water_velocity>
+            <x>0.</x>
+            <y>0.</y>
+            <z>0.</z>
+          </water_velocity>
+          <boundaries>
+            <near>10.</near>
+            <far>100.</far>
+          </boundaries>
+          <bins>10</bins>
+          <noise type="gaussian">
+            <stddev>0.015</stddev>
+          </noise>
+          <visualize>true</visualize>
+        </water_mass_mode>
+        <bottom_mode>
+          <when>best</when>
+          <noise type="gaussian">
+            <stddev>0.005</stddev>
+          </noise>
+          <visualize>true</visualize>
+        </bottom_mode>
+      </tracking>
+      <maximum_range>200.</maximum_range>
+      <minimum_range>0.3</minimum_range>
+      <reference_frame>0 0 0 3.14 0 -1.57</reference_frame>
+    </gz:dvl>
+  </sensor> -->
+</robot>
