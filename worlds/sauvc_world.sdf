@@ -38,14 +38,23 @@
       <render_engine>ogre2</render_engine>
     </plugin>
     <plugin
-      filename="gz-sim-dvl-system"
-      name="gz::sim::systems::DopplerVelocityLogSystem">
+      filename="gz-sim-imu-system"
+      name="gz::sim::systems::Imu">
     </plugin>
 
     <plugin
+      filename="gz-sim-magnetometer-system"
+      name="gz::sim::systems::Magnetometer">
+    </plugin>
+    <!-- <plugin
+      filename="gz-sim-dvl-system"
+      name="gz::sim::systems::DopplerVelocityLogSystem">
+    </plugin> -->
+
+    <!-- <plugin
       filename="multibeam_sonar_system"
       name="custom::MultibeamSonarSystem">
-    </plugin>
+    </plugin> -->
     <!-- Global light source -->
     <light type="directional" name="sun1">
       <pose>50 0 150 0 0 0</pose>

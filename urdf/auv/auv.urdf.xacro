@@ -1,0 +1,113 @@
+<?xml version="1.0" ?>
+<robot name="auv" xmlns:xacro="http://www.ros.org/wiki/xacro">
+
+  <xacro:include filename="$(find auv_description)/urdf/sensors/camera.urdf.xacro"/>
+  <xacro:include filename="$(find auv_description)/urdf/sensors/imu.urdf.xacro"/>
+  <xacro:include filename="$(find auv_description)/urdf/sensors/magnetometer.urdf.xacro"/>
+  <!-- <xacro:include filename="$(find auv_description)/urdf/sensors/camera.urdf.xacro"/> -->
+  <xacro:include filename="$(find auv_description)/urdf/thrusters/thrusters.urdf.xacro"/>
+
+  <link name="base_link">
+    <!-- Inertial -->
+    <inertial>
+      <origin xyz="0 0 -0.59" rpy="0 0 0"/>
+      <mass value="1862.87"/>
+      <inertia
+        ixx="525.39"
+        ixy="1.44"
+        ixz="33.41"
+        iyy="794.20"
+        iyz="2.6"
+        izz="691.23"/>
+    </inertial>
+
+    <!-- Visual mesh -->
+    <visual>
+      <origin xyz="0 0 0" rpy="0 0 0"/>
+      <geometry>
+        <mesh filename="file://$(find auv_description)/meshes/auv_no_props.dae" scale="1 1 1"/>
+      </geometry>
+    </visual>
+
+    <!-- Bottom plate -->
+    <collision>
+      <origin xyz="0 0 -0.75" rpy="0 0 0"/>
+      <geometry>
+        <box size="2.56 1.50 0.10"/>
+      </geometry>
+    </collision>
+
+    <!-- Top plate -->
+    <collision>
+      <origin xyz="0 0 0.60" rpy="0 0 0"/>
+      <geometry>
+        <box size="2.56 1.50 0.40"/>
+      </geometry>
+    </collision>
+
+    <!-- Left side -->
+    <collision>
+      <origin xyz="-0.20 0.70 -0.15" rpy="0 0 0"/>
+      <geometry>
+        <box size="2.20 0.10 1.10"/>
+      </geometry>
+    </collision>
+
+    <!-- Right side -->
+    <collision>
+      <origin xyz="0.20 -0.70 -0.15" rpy="0 0 0"/>
+      <geometry>
+        <box size="2.20 0.10 1.10"/>
+      </geometry>
+    </collision>
+
+  </link>
+
+    <gazebo>
+      <plugin
+        filename="gz-sim-hydrodynamics-system"
+        name="gz::sim::systems::Hydrodynamics">
+
+        <!-- Ocean physics options -->
+        <disable_coriolis>false</disable_coriolis>
+        <disable_added_mass>false</disable_added_mass>
+        <water_density>1028</water_density>
+
+        <!-- Target link -->
+        <link_name>base_link</link_name>
+        <!-- Added mass -->
+        <xDotU>-4.876161</xDotU>
+        <yDotV>-126.324739</yDotV>
+        <zDotW>-126.324739</zDotW>
+        <kDotP>0</kDotP>
+        <mDotQ>-33.46</mDotQ>
+        <nDotR>-33.46</nDotR>
+
+        <!-- Linear Drag Coefficients -->
+        <xU>-74.82</xU>
+        <yV>-69.48</yV>
+        <zW>-728.4</zW>
+        <kP>-268.8</kP>
+        <mQ>-309.77</mQ>
+        <nR>-105</nR>
+
+        <!-- Quadratic Drag Coefficients -->
+        <xUabsU>-748.22</xUabsU>
+        <yVabsV>-992.53</yVabsV>
+        <zWabsW>-1821.01</zWabsW>
+        <kPabsP>-672</kPabsP>
+        <mQabsQ>-774.44</mQabsQ>
+        <nRabsR>-523.27</nRabsR>
+      </plugin>
+
+      <plugin
+        filename="gz-sim-odometry-publisher-system"
+        name="gz::sim::systems::OdometryPublisher">
+        <odom_frame>map</odom_frame>
+        <robot_base_frame>base_link</robot_base_frame>
+        <dimensions>3</dimensions>
+        <odom_publish_frequency>100</odom_publish_frequency>
+      </plugin>
+    </gazebo>
+
+</robot>

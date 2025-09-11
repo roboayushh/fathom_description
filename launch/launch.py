@@ -10,7 +10,7 @@ def generate_launch_description():
     pkg_share = get_package_share_directory('auv_description')
     
     # Paths
-    urdf_file_path = os.path.join(pkg_share, 'urdf', 'robot.urdf.xacro')
+    urdf_file_path = os.path.join(pkg_share, 'urdf', 'auv','auv.urdf.xacro')
     world_path = os.path.join(pkg_share, 'worlds', 'sauvc_world.sdf')
     rviz_config_path = os.path.join(pkg_share, 'rviz', 'default.rviz')
     models_path = os.path.join(pkg_share, 'models')
