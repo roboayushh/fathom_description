@@ -12,7 +12,7 @@
       <shadows>1</shadows>
     </scene>
 
-    <physics name="1ms" type="ignored">
+    <physics name="1ms" type="dart">
       <max_step_size>0.001</max_step_size>
       <real_time_factor>1.0</real_time_factor>
     </physics>
@@ -89,8 +89,8 @@
     </light>
 
 
-    <include><uri>model://pool_ground</uri></include>
-    <include><uri>model://wall</uri></include>
+    <include><uri>model://pool_ground</uri><pose>0 0 -4 0 0 0</pose></include>
+    <include><uri>model://wall</uri><pose>0 0 -4 0 0 0</pose></include>
 
     <include><uri>model://gate</uri><pose>7 0 0 0 0 0</pose></include>
     <include><uri>model://green_mat</uri><pose>10 10 0 0 0 0</pose></include>

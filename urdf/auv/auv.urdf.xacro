@@ -4,14 +4,12 @@
   <xacro:include filename="$(find auv_description)/urdf/sensors/camera.urdf.xacro"/>
   <xacro:include filename="$(find auv_description)/urdf/sensors/imu.urdf.xacro"/>
   <xacro:include filename="$(find auv_description)/urdf/sensors/magnetometer.urdf.xacro"/>
-  <!-- <xacro:include filename="$(find auv_description)/urdf/sensors/camera.urdf.xacro"/> -->
   <xacro:include filename="$(find auv_description)/urdf/thrusters/thrusters.urdf.xacro"/>
 
   <link name="base_link">
-    <!-- Inertial -->
     <inertial>
       <origin xyz="0 0 -0.59" rpy="0 0 0"/>
-      <mass value="1862.87"/>
+      <mass value="2464.1"/>
       <inertia
         ixx="525.39"
         ixy="1.44"
@@ -21,7 +19,6 @@
         izz="691.23"/>
     </inertial>
 
-    <!-- Visual mesh -->
     <visual>
       <origin xyz="0 0 0" rpy="0 0 0"/>
       <geometry>
@@ -29,7 +26,6 @@
       </geometry>
     </visual>
 
-    <!-- Bottom plate -->
     <collision>
       <origin xyz="0 0 -0.75" rpy="0 0 0"/>
       <geometry>
@@ -37,7 +33,6 @@
       </geometry>
     </collision>
 
-    <!-- Top plate -->
     <collision>
       <origin xyz="0 0 0.60" rpy="0 0 0"/>
       <geometry>
@@ -45,7 +40,6 @@
       </geometry>
     </collision>
 
-    <!-- Left side -->
     <collision>
       <origin xyz="-0.20 0.70 -0.15" rpy="0 0 0"/>
       <geometry>
@@ -53,7 +47,6 @@
       </geometry>
     </collision>
 
-    <!-- Right side -->
     <collision>
       <origin xyz="0.20 -0.70 -0.15" rpy="0 0 0"/>
       <geometry>
@@ -61,21 +54,15 @@
       </geometry>
     </collision>
 
-  </link>
-
     <gazebo>
       <plugin
         filename="gz-sim-hydrodynamics-system"
         name="gz::sim::systems::Hydrodynamics">
 
-        <!-- Ocean physics options -->
         <disable_coriolis>false</disable_coriolis>
         <disable_added_mass>false</disable_added_mass>
         <water_density>1028</water_density>
 
-        <!-- Target link -->
-        <link_name>base_link</link_name>
-        <!-- Added mass -->
         <xDotU>-4.876161</xDotU>
         <yDotV>-126.324739</yDotV>
         <zDotW>-126.324739</zDotW>
@@ -83,7 +70,6 @@
         <mDotQ>-33.46</mDotQ>
         <nDotR>-33.46</nDotR>
 
-        <!-- Linear Drag Coefficients -->
         <xU>-74.82</xU>
         <yV>-69.48</yV>
         <zW>-728.4</zW>
@@ -91,7 +77,6 @@
         <mQ>-309.77</mQ>
         <nR>-105</nR>
 
-        <!-- Quadratic Drag Coefficients -->
         <xUabsU>-748.22</xUabsU>
         <yVabsV>-992.53</yVabsV>
         <zWabsW>-1821.01</zWabsW>
@@ -99,7 +84,11 @@
         <mQabsQ>-774.44</mQabsQ>
         <nRabsR>-523.27</nRabsR>
       </plugin>
+    </gazebo>
 
+  </link>
+
+  <gazebo>
       <plugin
         filename="gz-sim-odometry-publisher-system"
         name="gz::sim::systems::OdometryPublisher">
@@ -108,6 +97,6 @@
         <dimensions>3</dimensions>
         <odom_publish_frequency>100</odom_publish_frequency>
       </plugin>
-    </gazebo>
+  </gazebo>
 
 </robot>

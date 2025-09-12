@@ -6,14 +6,14 @@
       <pose>0 12.5 0 0 0 0</pose>
       <collision name='Wall_0_Collision'>
         <geometry>
-          <box><size>50.15 0.15 2</size></box>
+          <box><size>50.15 0.15 4</size></box>
         </geometry>
         <pose>0 0 1 0 0 0</pose>
       </collision>
       <visual name='Wall_0_Visual'>
         <pose>0 0 1 0 0 0</pose>
         <geometry>
-          <box><size>50.15 0.15 2</size></box>
+          <box><size>50.15 0.15 4</size></box>
         </geometry>
         <material>
           <ambient>0.44 0.62 0.81 1</ambient>
@@ -25,14 +25,14 @@
     <link name='Wall_2'>
       <collision name='Wall_2_Collision'>
         <geometry>
-          <box><size>25.15 0.15 2</size></box>
+          <box><size>25.15 0.15 4</size></box>
         </geometry>
         <pose>0 0 1 0 0 0</pose>
       </collision>
       <visual name='Wall_2_Visual'>
         <pose>0 0 1 0 0 0</pose>
         <geometry>
-          <box><size>25.15 0.15 2</size></box>
+          <box><size>25.15 0.15 4</size></box>
         </geometry>
         <material>
           <ambient>0.44 0.62 0.81 1</ambient>
@@ -45,14 +45,14 @@
     <link name='Wall_4'>
       <collision name='Wall_4_Collision'>
         <geometry>
-          <box><size>25.15 0.15 2</size></box>
+          <box><size>25.15 0.15 4</size></box>
         </geometry>
         <pose>0 0 1 0 0 0</pose>
       </collision>
       <visual name='Wall_4_Visual'>
         <pose>0 0 1 0 0 0</pose>
         <geometry>
-          <box><size>25.15 0.15 2</size></box>
+          <box><size>25.15 0.15 4</size></box>
         </geometry>
         <material>
           <ambient>0.44 0.62 0.81 1</ambient>
@@ -65,14 +65,14 @@
     <link name='Wall_6'>
       <collision name='Wall_6_Collision'>
         <geometry>
-          <box><size>50.15 0.15 2</size></box>
+          <box><size>50.15 0.15 4</size></box>
         </geometry>
         <pose>0 0 1 0 0 0</pose>
       </collision>
       <visual name='Wall_6_Visual'>
         <pose>0 0 1 0 0 0</pose>
         <geometry>
-          <box><size>50.15 0.15 2</size></box>
+          <box><size>50.15 0.15 4</size></box>
         </geometry>
         <material>
           <ambient>0.44 0.62 0.81 1</ambient>

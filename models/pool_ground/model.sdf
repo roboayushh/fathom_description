@@ -33,7 +33,7 @@
         <cast_shadows>false</cast_shadows>
         <geometry>
           <box>
-            <size>49.85 25.15 2</size>
+            <size>49.85 25.15 4</size>
           </box>
         </geometry>
         <material>

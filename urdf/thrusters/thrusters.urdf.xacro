@@ -1,9 +1,6 @@
 <?xml version="1.0" ?>
 <robot xmlns:xacro="http://www.ros.org/wiki/xacro">
 
-<?xml version="1.0"?>
-<robot xmlns:xacro="http://ros.org/wiki/xacro" name="rexrov_thrusters">
-
   <!-- Thruster macro -->
   <xacro:macro name="thruster" params="name xyz rpy">
     <link name="${name}">

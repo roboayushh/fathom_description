@@ -62,8 +62,8 @@ def generate_launch_description():
         arguments=[
             '-topic', 'robot_description',
             '-name', 'fathom_auv',
-            '-x', '8.42',
-            '-y', '-13.66',
+            '-x', '6.83',
+            '-y', '-10.81',
             '-z', '0.15',
             '-R', '0',
             '-P', '-0.10',

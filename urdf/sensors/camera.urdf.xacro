@@ -56,9 +56,9 @@
         </clip>
       </camera>
       <always_on>1</always_on>
-      <topic>/auv/camera/image_raw</topic> 
+      <topic>/auv/camera/image</topic> 
       <update_rate>30</update_rate>
       <visualize>true</visualize>
     </sensor>
-    </sensor>
 </gazebo>
+</robot>
